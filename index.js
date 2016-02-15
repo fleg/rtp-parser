@@ -7,7 +7,7 @@ function  parseRtpPacket(buf) {
 		throw new Error('parseRtpPacket: buffer required');
 	}
 
-	if (buf.length < 12) {
+	if (buf.length < FIXED_HEADER_LENGTH) {
 		throw new Error('parseRtpPacket: can not parse buffer smaller than ' +
 			'fixed header');
 	}
