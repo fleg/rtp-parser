@@ -49,7 +49,6 @@ exports.packet = new Buffer(
 	'720ceab89afe7545e65b', 'hex'
 );
 
-
 exports.parsed = {
 	version: 2,
 	padding: 0,

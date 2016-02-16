@@ -5,7 +5,7 @@ var _ = require('underscore'),
 	parse = require('../index');
 
 describe('packets test', function() {
-	_(['without-csrc']).each(function(name) {
+	_(['h264', 'pcma', 'pcmu', 'dynamic']).each(function(name) {
 		it('parse `' + name + '` packet', function() {
 			var fixture = require('./fixtures/' + name),
 				expected = fixture.parsed,
