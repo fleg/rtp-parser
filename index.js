@@ -2,14 +2,13 @@
 
 var FIXED_HEADER_LENGTH = 12;
 
-function  parseRtpPacket(buf) {
+exports.parseRtpPacket = function parseRtpPacket(buf) {
 	if (!Buffer.isBuffer(buf)) {
-		throw new Error('parseRtpPacket: buffer required');
+		throw new Error('buffer required');
 	}
 
 	if (buf.length < FIXED_HEADER_LENGTH) {
-		throw new Error('parseRtpPacket: can not parse buffer smaller than ' +
-			'fixed header');
+		throw new Error('can not parse buffer smaller than fixed header');
 	}
 
 	var firstByte = buf.readUInt8(0),
@@ -34,7 +33,6 @@ function  parseRtpPacket(buf) {
 	parsed.payload = buf.slice(FIXED_HEADER_LENGTH + csrcLength);
 
 	return parsed;
-}
+};
 
-module.exports = parseRtpPacket;
-module.exports.FIXED_HEADER_LENGTH = FIXED_HEADER_LENGTH;
+exports.FIXED_HEADER_LENGTH = FIXED_HEADER_LENGTH;

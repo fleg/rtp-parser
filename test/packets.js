@@ -2,14 +2,14 @@
 
 var _ = require('underscore'),
 	expect = require('expect.js'),
-	parse = require('../index');
+	parseRtpPacket = require('../index').parseRtpPacket;
 
 describe('packets test', function() {
 	_(['h264', 'pcma', 'pcmu', 'dynamic']).each(function(name) {
 		it('parse `' + name + '` packet', function() {
 			var fixture = require('./fixtures/' + name),
 				expected = fixture.parsed,
-				parsed = parse(fixture.packet);
+				parsed = parseRtpPacket(fixture.packet);
 
 			expect(expected.version).to.equal(parsed.version);
 			expect(expected.padding).to.equal(parsed.padding);
