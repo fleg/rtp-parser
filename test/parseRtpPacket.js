@@ -3,7 +3,6 @@
 var expect = require('expect.js'),
 	parseRtpPacket = require('../index').parseRtpPacket;
 
-
 describe('parser test', function() {
 	it('should throw error on non-buffer', function() {
 		expect(function() {
