@@ -14,8 +14,7 @@ exports.parseRtpPacket = function parseRtpPacket(buf) {
 	}
 
 	var firstByte = buf.readUInt8(0),
-		secondByte = buf.readUInt8(1),
-		csrcLength = 0;
+		secondByte = buf.readUInt8(1);
 
 	var parsed = {
 		version: firstByte >> 6,
@@ -30,9 +29,11 @@ exports.parseRtpPacket = function parseRtpPacket(buf) {
 		csrc: []
 	};
 
-	// TODO add csrc support
+	for (var i = 0; i < parsed.csrcCount; i++) {
+		parsed.csrc.push(buf.readUInt32BE(9 + 4 * i));
+	}
 
-	parsed.payload = buf.slice(FIXED_HEADER_LENGTH + csrcLength);
+	parsed.payload = buf.slice(FIXED_HEADER_LENGTH + 4 * parsed.csrcCount);
 
 	return parsed;
 };

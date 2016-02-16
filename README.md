@@ -5,6 +5,6 @@
 RTP packets parser (work in progress)
 
 ## TODO
-- add csrc support
+- add csrc test
 - add docs
 - npm publish
