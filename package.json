@@ -9,6 +9,9 @@
     "url": "https://github.com/fleg/rtp-parser.git"
   },
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "test": "mocha test/ --reporter spec",
     "test-travis": "istanbul cover _mocha -- --reporter spec --timeout 10000"
